@@ -1,41 +1,63 @@
-Project: Bitcoin Price Prediction Using LSTM (Long Short-Term Memory) Network
-Overview:
-This project focuses on predicting the future price of Bitcoin using historical price data and applying a Long Short-Term Memory (LSTM) network. The goal is to demonstrate how machine learning can be applied to financial data, specifically cryptocurrency, to create predictive models that can aid investors and enthusiasts in making informed decisions.
+# Bitcoin Price Prediction Using LSTM Network
 
-Technologies Used:
-Python
-TensorFlow/Keras for building the LSTM model
-pandas and NumPy for data manipulation
-Matplotlib for data visualization
-requests for fetching data from CoinGecko API
-scikit-learn for model evaluation
-Data Source:
-The historical Bitcoin price data was fetched using the CoinGecko API, which provides real-time and historical cryptocurrency price information. In this project, we used Bitcoin's daily closing price data for the past 365 days.
+This project demonstrates the use of a Long Short-Term Memory (LSTM) network to predict the future price of Bitcoin based on historical price data. By leveraging deep learning, this model aims to capture the trends and patterns in the volatile cryptocurrency market and make future price predictions.
 
-Problem Statement:
-The goal of the project is to predict Bitcoin’s future price based on past market data. Cryptocurrency markets are highly volatile, and having predictive models can provide valuable insights for making short-term and long-term investment decisions.
+## Technologies Used:
+- **Python**
+- **TensorFlow** / **Keras** for building the LSTM model
+- **pandas** and **NumPy** for data manipulation
+- **Matplotlib** for data visualization
+- **requests** for fetching data from the CoinGecko API
+- **scikit-learn** for data preprocessing and model evaluation
 
-Steps Taken:
-Data Collection: The data was fetched using the CoinGecko API, which provides daily market charts for Bitcoin. The dataset contains historical prices (in USD) with timestamps.
+## Data Source:
+The historical Bitcoin price data was fetched from the [CoinGecko API](https://www.coingecko.com/). This API provides real-time and historical cryptocurrency data, and in this project, Bitcoin’s daily closing price data for the last 365 days was used.
 
-Data Preprocessing: The data was cleaned, and the timestamp was converted into a readable date format. The closing prices were then normalized using MinMaxScaler to scale the values between 0 and 1, which is essential for the LSTM model to learn effectively.
+## Project Workflow:
+1. **Data Collection**:
+   - Fetch Bitcoin’s historical daily price data from the CoinGecko API.
+   - Convert timestamps to readable dates and format the data into a pandas DataFrame.
 
-Model Building: A Long Short-Term Memory (LSTM) model was used for the prediction task. LSTM is a type of recurrent neural network (RNN) designed to handle sequences of data and is widely used in time-series forecasting. The model architecture includes:
+2. **Data Preprocessing**:
+   - Normalize the price data using **MinMaxScaler** to scale the values between 0 and 1.
+   - Split the data into training and test sets.
 
-Two LSTM layers with 50 units each
-A Dense layer as the output layer
-Model Training: The data was split into training and test sets. The LSTM model was trained on the training data for 10 epochs, using the Adam optimizer and mean squared error loss function.
+3. **Model Development**:
+   - Built an LSTM (Long Short-Term Memory) network to predict future Bitcoin prices.
+   - The LSTM model consists of two LSTM layers and a Dense output layer.
 
-Prediction and Evaluation: After training the model, predictions were made on the test data. The predicted values were then inverse-scaled to match the original scale of Bitcoin prices. The model’s performance was evaluated using Mean Absolute Error (MAE), which measures the average absolute difference between the predicted and actual prices.
+4. **Model Training**:
+   - The model was trained using the training dataset with 10 epochs and Adam optimizer.
+   
+5. **Prediction and Evaluation**:
+   - The model made predictions on the test set, which were inverse-scaled back to their original values.
+   - Evaluated the model’s performance using **Mean Absolute Error (MAE)**.
 
-Visualization: The predicted and actual prices were visualized on a plot to assess the model's accuracy visually. The results were promising, showing the model’s ability to capture the price trends.
+6. **Results Visualization**:
+   - Visualized both actual and predicted prices to assess the accuracy of the model.
 
-Results:
-The model was able to predict Bitcoin prices with a Mean Absolute Error (MAE) of around $16,600, which, although not perfect, shows reasonable accuracy for forecasting prices.
-The model successfully identified general trends, such as price increases or decreases, despite the volatile nature of cryptocurrency markets.
-Future Improvements:
-Incorporating more features: Additional features such as trading volume, market sentiment, or social media trends could enhance the model’s predictive power.
-Hyperparameter tuning: Optimizing the hyperparameters of the LSTM model (e.g., number of units, batch size, and epochs) could improve its accuracy.
-Advanced Models: Exploring other models such as GRU (Gated Recurrent Units) or even hybrid models combining LSTM and other machine learning techniques could further enhance performance.
-Conclusion:
-This project demonstrates the application of deep learning techniques, specifically LSTM networks, to time-series forecasting in the cryptocurrency domain. While the results show promise, there is room for improvement, and with further optimization, the model could provide more accurate price predictions for Bitcoin and other cryptocurrencies.
+## Results:
+- The LSTM model was able to predict Bitcoin’s price with a **Mean Absolute Error (MAE)** of **$16,600**, capturing the general trends of price movement.
+- The model can predict future Bitcoin prices and trends but can be improved with further adjustments.
+
+## Future Improvements:
+- Incorporating additional features like trading volume, market sentiment, or social media data could improve the model's accuracy.
+- Hyperparameter tuning to optimize the model’s performance (e.g., changing the number of LSTM units, batch size, epochs).
+- Experimenting with other models like **GRU (Gated Recurrent Units)** or hybrid models to further enhance the results.
+
+## Running the Project:
+1. Clone this repository to your local machine:
+   ```bash
+   git clone https://github.com/your-username/bitcoin_price_prediction.git
+2. Install the required dependencies:
+   pip install -r requirements.txt
+3. Run the script to fetch data, train the model, and evaluate predictions:
+   bitcoin_price_prediction.ipynb
+License:
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+Acknowledgements:
+Thanks to the CoinGecko API for providing the historical cryptocurrency data.
+Thanks to TensorFlow and Keras for the powerful deep learning frameworks used in the project.
+
+
